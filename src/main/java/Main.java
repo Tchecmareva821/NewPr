@@ -1,6 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        WorkMatrix workMatrix=new WorkMatrix();
-        workMatrix.Test(3);
+        SomeClass someClass=new SomeClass();
+        WorkMatrix workMatrix = new WorkMatrix();
+
+        someClass.registerCallBack(workMatrix);
+        someClass.test(3);
     }
 }
