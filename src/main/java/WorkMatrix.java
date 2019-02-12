@@ -14,16 +14,16 @@ public class WorkMatrix {
         for (int i=0;i<f.length;i++){
             f[i][0]=1;
         }
-        for (int i=0;i<x.length;i++){
-            for (int j = 0; j <x[i].length ; j++) {
-               if (j==1){
-                   f[i][j]=Math.log(x[i][j]*x[i][j]);
-                   continue;
-               }
-               if (j==2){
-                   f[i][j]=Math.log(x[i][j]);
-                   continue;
-               }
+        for (int i=0;i<f.length;i++){
+            for (int j = 1; j <f[i].length ; j++) {
+                if (j==1){
+                    f[i][j]=Math.log(x[i][j-1]*x[i][j-1]);
+                    continue;
+                }
+                if (j==2){
+                    f[i][j]=Math.log(x[i][j-1]);
+                    continue;
+                }
             }
         }
         return f;
