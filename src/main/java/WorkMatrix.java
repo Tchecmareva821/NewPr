@@ -2,14 +2,19 @@ import Jama.Matrix;
 
 import java.util.Scanner;
 
-public class WorkMatrix {
+public class WorkMatrix implements CallBack {
     private Scanner scanner = new Scanner(System.in);
-
+    CallBack callBack;
+    public void registerCallBack(CallBack callBack){
+        this.callBack=callBack;
+    }
     public void Test(int n){
-        test(fRet(xRet(n)), yRet(n));
+        registerCallBack(new WorkMatrix());
+        test(callBack.fRet(callBack.xRet(n)),callBack.yRet(n));
     }
 
-    private double[][] fRet(double[][] x){
+    @Override
+    public double[][] fRet(double[][] x){
         double[][] f=new double[x.length][3];
         for (int i=0;i<f.length;i++){
             f[i][0]=1;
@@ -29,7 +34,8 @@ public class WorkMatrix {
         return f;
     }
 
-    private double[][] xRet(int n ) {
+    @Override
+    public double[][] xRet(int n) {
         double[][] x = new double[n][2];
         for (int i=0;i<x.length;i++){
             System.out.println("Enter x["+i+"]: ");
@@ -40,7 +46,8 @@ public class WorkMatrix {
         return x;
     }
 
-    private double[] yRet(int n){
+    @Override
+    public double[] yRet(int n){
         double[] y=new double[n];
         System.out.println("Enter y: ");
         for (int i=0;i<y.length;i++){
