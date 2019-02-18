@@ -6,8 +6,8 @@ public class WorkMatrix implements SomeClass.CallBack {
     private Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void Test(int n) {
-        test(fRet(xRet(n)),yRet(n));
+    public double[] Test(int n) {
+        return test(fRet(xRet(n)),yRet(n));
     }
 
     private double[][] fRet(double[][] x) {
@@ -50,7 +50,7 @@ public class WorkMatrix implements SomeClass.CallBack {
         return y;
     }
 
-    private void test(double[][] x, double[] yy) {
+    private double[] test(double[][] x, double[] yy) {
         Matrix A1 = new Matrix(x);
         A1.print(10, 2);
         Matrix B1 = A1.transpose();
@@ -62,5 +62,6 @@ public class WorkMatrix implements SomeClass.CallBack {
         double[] z = F3.getColumnPackedCopy();
         for (int i = 0; i < 3; i++)
             System.out.println("z[" + i + "]=" + z[i]);
+        return z;
     }
 }
