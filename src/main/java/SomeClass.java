@@ -10,7 +10,6 @@ public class SomeClass {
     }
 
     public void test(int n) {
-        System.out.println("Hello world");
         double[] z = callBack.Test(n);
     }
 

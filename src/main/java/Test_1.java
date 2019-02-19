@@ -2,7 +2,7 @@ import Jama.Matrix;
 
 import java.util.Scanner;
 
-public class WorkMatrix implements SomeClass.CallBack {
+public class Test_1 implements SomeClass.CallBack {
     private Scanner scanner = new Scanner(System.in);
 
     @Override
@@ -22,7 +22,7 @@ public class WorkMatrix implements SomeClass.CallBack {
                     continue;
                 }
                 if (j == 2) {
-                    f[i][j] = Math.log(x[i][j - 1]);
+                    f[i][j] = Math.pow(x[i][j - 1],j);
                     continue;
                 }
             }
